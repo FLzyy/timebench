@@ -31,12 +31,7 @@ export default class Timer {
 
     this.eTime = process.hrtime.bigint();
 
-    const ns = this.eTime - this.sTime;
-    const all = {
-      ns,
-      ms: Number(ns / 1000000n),
-      s: Number(ns / 1000000000n),
-    };
+    const all = this.elasped;
 
     this.stored.push(all);
 
