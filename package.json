@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Helper class to help with timers and stuff.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "compile": "npx swc src/index.ts -d dist --config-file .swcrc",
     "clean": "rmdir /Q /S dist",
