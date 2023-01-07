@@ -15,15 +15,26 @@ export default class Timer {
     this.stored = [];
   }
 
-  start(): void {
+  start(): Timer {
     if (this.sTime !== 0n) {
       throw new Error("Timer is still currently ongoing.");
     }
     this.sTime = process.hrtime.bigint();
+
+    return this;
   }
 
-  end(): void {
+  end(): Timer {
     this.eTime = process.hrtime.bigint();
+
+    return this;
+  }
+
+  reset(): Timer {
+    this.sTime = 0n;
+    this.eTime = 0n;
+
+    return this;
   }
 
   get time(): Times {
@@ -37,10 +48,5 @@ export default class Timer {
     this.stored.push(all);
 
     return all;
-  }
-
-  reset(): void {
-    this.sTime = 0n;
-    this.eTime = 0n;
   }
 }
