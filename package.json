@@ -11,9 +11,9 @@
     "dev": "tsx src/dev.ts",
     "test": "npx tsx tests/index.test.ts",
     "pub": "npm run build && cd dist && npm publish --access=public",
-    "patch": "npm version patch && npm run pub && git push --follow-tags",
-    "minor": "npm version minor && npm run pub && git push --follow-tags",
-    "major": "npm version major && npm run pub && git push --follow-tags",
+    "patch": "npm version patch && npm run pub && git push --follow-tags && npm run clean",
+    "minor": "npm version minor && npm run pub && git push --follow-tags && npm run clean",
+    "major": "npm version major && npm run pub && git push --follow-tags && npm run clean",
     "type": "tsc --project declaretypes.json"
   },
   "repository": {
