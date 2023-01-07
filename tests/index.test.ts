@@ -11,7 +11,7 @@ describe("Basic Functionality", { concurrency: true }, () => {
   });
 
   it("should return with all properties", () => {
-    const compareAgainst = new Timer().end().time;
+    const compareAgainst = new Timer().end().elasped;
 
     if (
       !("ns" in compareAgainst && "ms" in compareAgainst &&
@@ -24,11 +24,11 @@ describe("Basic Functionality", { concurrency: true }, () => {
   it("stored should have at least two elements", () => {
     const timer = new Timer();
     timer.end();
-    timer.time;
+    timer.elasped;
     timer.reset();
     timer.start();
     timer.end();
-    timer.time;
+    timer.elasped;
 
     equal(timer.stored.length, 2);
   });

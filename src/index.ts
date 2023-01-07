@@ -37,7 +37,7 @@ export default class Timer {
     return this;
   }
 
-  get time(): Times {
+  get elasped(): Times {
     const ns = this.eTime - this.sTime;
     const all = {
       ns,

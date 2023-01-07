@@ -9,7 +9,7 @@ while (i < 1000000000) {
 
 timer.end();
 
-console.log(timer.time);
+console.log(timer.elasped);
 
 timer.reset();
 
@@ -22,6 +22,6 @@ while (h < 1000000000) {
 
 timer.end();
 
-console.log(timer.time);
+console.log(timer.elasped);
 
 console.log(timer.stored);
