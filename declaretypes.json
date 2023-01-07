@@ -4,7 +4,11 @@
     "moduleResolution": "NodeNext",
     "strictNullChecks": true,
     "target": "ES2021",
-    "outDir": "dist"
+    "outDir": "src/types",
+    "declaration": true,
+    "emitDeclarationOnly": true
   },
-  "include": ["src/**/*", "scripts/**/*", "tests/**/*"]
+  "include": [
+    "src/index.ts"
+  ]
 }

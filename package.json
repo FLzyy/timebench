@@ -6,13 +6,14 @@
   "scripts": {
     "compile": "npx swc src/index.ts -d dist --config-file .swcrc",
     "clean": "rmdir /Q /S dist",
-    "build": "npm run compile && node scripts/build.js",
+    "build": "npm run compile && npm run type && node scripts/build.js",
     "dev": "tsx src/dev.ts",
     "test": "npx tsx tests/index.test.ts",
-    "pub": "npm run build && cd dist && npm publish",
+    "pub": "npm run build && cd dist && npm publish --access=public",
     "patch": "npm version patch && npm run pub && git push --follow-tags",
     "minor": "npm version minor && npm run pub && git push --follow-tags",
-    "major": "npm version major && npm run pub && git push --follow-tags"
+    "major": "npm version major && npm run pub && git push --follow-tags",
+    "type": "tsc --project declaretypes.json"
   },
   "repository": {
     "type": "git",
