@@ -1,7 +1,7 @@
 {
-  "name": "npm-package",
+  "name": "timebench",
   "version": "1.0.0",
-  "description": "npm-package description",
+  "description": "Helper class to help with timers and stuff.",
   "main": "index.js",
   "scripts": {
     "compile": "npx swc src/index.ts -d dist --config-file .swcrc",
@@ -16,21 +16,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FLzyy/npm-package.git"
+    "url": "git+https://github.com/FLzyy/timebench.git"
   },
   "keywords": [
-    "key",
-    "w",
-    "o",
-    "r",
-    "d"
+    "timer",
+    "benchmark",
+    "time",
+    "hrtime",
+    "span",
+    "stopwatch"
   ],
   "author": "FLzyy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FLzyy/npm-package/issues"
+    "url": "https://github.com/FLzyy/timebench/issues"
   },
-  "homepage": "https://github.com/FLzyy/npm-package#readme",
+  "homepage": "https://github.com/FLzyy/timebench#readme",
   "devDependencies": {
     "@swc/cli": "^0.1.59",
     "@swc/core": "^1.3.24",
