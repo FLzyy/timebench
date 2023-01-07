@@ -25,6 +25,10 @@ export default class Timer {
   }
 
   end(): Timer {
+    if (this.sTime === 0n) {
+      throw new Error("Timer has not been started yet");
+    }
+
     this.eTime = process.hrtime.bigint();
 
     const ns = this.eTime - this.sTime;
@@ -48,12 +52,11 @@ export default class Timer {
 
   get elasped(): Times {
     const ns = this.eTime - this.sTime;
-    const all = {
+
+    return {
       ns,
       ms: Number(ns / 1000000n),
       s: Number(ns / 1000000000n),
     };
-
-    return all;
   }
 }

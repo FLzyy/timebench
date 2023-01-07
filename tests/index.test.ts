@@ -10,6 +10,10 @@ describe("Basic Functionality", { concurrency: true }, () => {
     throws(new Timer().start);
   });
 
+  it("should throw when ended without starting", () => {
+    throws(new Timer().reset().end);
+  });
+
   it("should return with all properties", () => {
     const compareAgainst = new Timer().end().elasped;
 
