@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import { describe, it } from "node:test";
-import { throws } from "node:assert/strict";
+import { equal, throws } from "node:assert/strict";
 import Timer from "../src/index";
 
 describe("Basic Functionality", { concurrency: true }, () => {
@@ -17,5 +19,17 @@ describe("Basic Functionality", { concurrency: true }, () => {
     ) {
       throw new Error("Property is missing");
     }
+  });
+
+  it("stored should have at least two elements", () => {
+    const timer = new Timer();
+    timer.end();
+    timer.time;
+    timer.reset();
+    timer.start();
+    timer.end();
+    timer.time;
+
+    equal(timer.stored.length, 2);
   });
 });
