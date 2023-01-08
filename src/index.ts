@@ -1,21 +1,15 @@
 interface Times {
   ns: bigint;
-  ms: number;
-  s: number;
+  ms: bigint;
+  s: bigint;
 }
 
 export default class Timer {
-  stored: Times[];
-  private sTime: bigint;
-  private eTime: bigint;
+  stored: Times[] = [];
+  private sTime: bigint = process.hrtime.bigint();
+  private eTime: bigint = 0n;
 
-  constructor() {
-    this.sTime = process.hrtime.bigint();
-    this.eTime = 0n;
-    this.stored = [];
-  }
-
-  start(): Timer {
+  start(): this {
     if (this.sTime !== 0n) {
       throw new Error("Timer is still currently ongoing.");
     }
@@ -24,23 +18,20 @@ export default class Timer {
     return this;
   }
 
-  end(): Timer {
+  end(): this {
     if (this.sTime === 0n) {
       throw new Error("Timer has not been started yet");
     }
 
     this.eTime = process.hrtime.bigint();
 
-    const all = this.elasped;
-
-    this.stored.push(all);
+    this.stored.push(this.elasped);
 
     return this;
   }
 
-  reset(): Timer {
-    this.sTime = 0n;
-    this.eTime = 0n;
+  reset(): this {
+    this.sTime = this.eTime = 0n;
 
     return this;
   }
@@ -50,8 +41,8 @@ export default class Timer {
 
     return {
       ns,
-      ms: Number(ns / 1000000n),
-      s: Number(ns / 1000000000n),
+      ms: ns / 1000000n,
+      s: ns / 1000000000n,
     };
   }
 }

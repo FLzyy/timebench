@@ -1,11 +1,16 @@
 import Timer from "./index";
 
+/**
+ * Helper sleep function, accurate to a few ms.
+ * @param {number} ms
+ */
+const sleep = (ms: number): void => {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+};
+
 const timer = new Timer();
 
-let i = 0;
-while (i < 1000000000) {
-  i++;
-}
+sleep(3000);
 
 timer.end();
 
@@ -15,10 +20,7 @@ timer.reset();
 
 timer.start();
 
-let h = 0;
-while (h < 1000000000) {
-  h++;
-}
+sleep(3000);
 
 timer.end();
 
