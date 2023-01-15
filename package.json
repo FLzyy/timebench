@@ -1,6 +1,6 @@
 {
   "name": "timebench",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helper class to help with timers and stuff.",
   "main": "index.js",
   "type": "module",
