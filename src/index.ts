@@ -13,6 +13,9 @@ export default class Timer {
     if (this.sTime !== 0n) {
       throw new Error("Timer is still currently ongoing.");
     }
+    if (this.eTime !== 0n) {
+      throw new Error("Timer has not be reset.");
+    }
     this.sTime = process.hrtime.bigint();
 
     return this;

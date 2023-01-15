@@ -49,3 +49,7 @@ elasped since Timer has been started and ended.
 ### `<Timer>.stored`
 
 Returns all times timed with the instantiated Class.
+
+### `<Timer>.lap()`
+
+Laps the timer (gets current time elapsed and stores it without stopping).
