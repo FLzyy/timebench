@@ -4,11 +4,26 @@ interface Times {
   s: bigint;
 }
 
+/**
+ * Creates a new Timer object and starts it.
+ *
+ * @export
+ * @class Timer
+ * @typedef {Timer}
+ */
 export default class Timer {
+  /**
+   * Contains saved times from lapping.
+   *
+   * @type {Times[]}
+   */
   stored: Times[] = [];
   private sTime: bigint = process.hrtime.bigint();
   private eTime: bigint = 0n;
 
+  /**
+   * Starts the timer only if it is not ongoing and has been reset.
+   */
   start(): this {
     if (this.sTime !== 0n) {
       throw new Error("Timer is still currently ongoing.");
@@ -21,6 +36,9 @@ export default class Timer {
     return this;
   }
 
+  /**
+   * Ends the timer, requires for the timer to have been started.
+   */
   end(): this {
     if (this.sTime === 0n) {
       throw new Error("Timer has not been started yet.");
@@ -28,16 +46,13 @@ export default class Timer {
 
     this.eTime = process.hrtime.bigint();
 
-    this.stored.push(this.elasped);
-
     return this;
   }
 
+  /**
+   * Saves the current time in the `stored` property.
+   */
   lap(): this {
-    if (this.sTime === 0n) {
-      throw new Error("Timer has not been started yet.");
-    }
-
     const ns = process.hrtime.bigint() - this.sTime;
 
     this.stored.push({
@@ -49,12 +64,21 @@ export default class Timer {
     return this;
   }
 
+  /**
+   * Resets the timer back to 0ns
+   */
   reset(): this {
     this.sTime = this.eTime = 0n;
 
     return this;
   }
 
+  /**
+   * Returns the elapsed time, requires for the timer to have been ended.
+   *
+   * @readonly
+   * @type {Times}
+   */
   get elasped(): Times {
     if (this.eTime === 0n) {
       throw new Error("Timer has not ended.");

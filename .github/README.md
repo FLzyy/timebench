@@ -34,8 +34,7 @@ Starts the timer, requires for the timer to have been restarted.
 
 ### `<Timer>.end()`
 
-Ends the timer, requires for the timer to have been started. It also stores the time values in
-`<Timer>.stored`
+Ends the timer, requires for the timer to have been started.
 
 ### `<Timer>.reset()`
 
@@ -48,8 +47,8 @@ elasped since Timer has been started and ended.
 
 ### `<Timer>.stored`
 
-Returns all times timed with the instantiated Class.
+Returns all lapped times with the instantiated Class.
 
 ### `<Timer>.lap()`
 
-Laps the timer (gets current time elapsed and stores it without stopping).
+Stores current elapsed in the `stored` variable
