@@ -1,16 +1,16 @@
 interface Times {
     ns: bigint;
-    ms: number;
-    s: number;
+    ms: bigint;
+    s: bigint;
 }
 export default class Timer {
     stored: Times[];
     private sTime;
     private eTime;
-    constructor();
-    start(): Timer;
-    end(): Timer;
-    reset(): Timer;
+    start(): this;
+    end(): this;
+    lap(): this;
+    reset(): this;
     get elasped(): Times;
 }
 export {};
