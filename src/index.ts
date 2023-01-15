@@ -30,6 +30,22 @@ export default class Timer {
     return this;
   }
 
+  lap(): this {
+    if (this.sTime === 0n) {
+      throw new Error("Timer has not been started yet");
+    }
+
+    const ns = process.hrtime.bigint() - this.sTime;
+
+    this.stored.push({
+      ns,
+      ms: ns / 1000000n,
+      s: ns / 1000000000n,
+    });
+
+    return this;
+  }
+
   reset(): this {
     this.sTime = this.eTime = 0n;
 

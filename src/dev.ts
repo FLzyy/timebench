@@ -12,18 +12,13 @@ const timer = new Timer();
 
 sleep(3000);
 
+timer.lap();
+
+sleep(2000);
+
 timer.end();
 
 console.log(timer.elasped);
+console.log(timer.stored);
 
 timer.reset();
-
-timer.start();
-
-sleep(3000);
-
-timer.end();
-
-console.log(timer.elasped);
-
-console.log(timer.stored);
