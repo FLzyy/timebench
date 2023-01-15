@@ -23,7 +23,7 @@ export default class Timer {
 
   end(): this {
     if (this.sTime === 0n) {
-      throw new Error("Timer has not been started yet");
+      throw new Error("Timer has not been started yet.");
     }
 
     this.eTime = process.hrtime.bigint();
@@ -35,7 +35,7 @@ export default class Timer {
 
   lap(): this {
     if (this.sTime === 0n) {
-      throw new Error("Timer has not been started yet");
+      throw new Error("Timer has not been started yet.");
     }
 
     const ns = process.hrtime.bigint() - this.sTime;
@@ -56,6 +56,10 @@ export default class Timer {
   }
 
   get elasped(): Times {
+    if (this.eTime === 0n) {
+      throw new Error("Timer has not ended.");
+    }
+
     const ns = this.eTime - this.sTime;
 
     return {
